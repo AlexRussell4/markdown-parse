@@ -14,18 +14,25 @@ public class MarkdownParse {
         if (markdown.contains("[") && markdown.contains("]") && markdown.contains("(") && markdown.contains(")")) {
             while (currentIndex < markdown.length()) {
                 String remainingString = markdown.substring(currentIndex);
-                if (!remainingString.contains("[") || !remainingString.contains("]") 
-                || !remainingString.contains("(") || !remainingString.contains(")")) {break;}
+                if (!remainingString.contains("[") || !remainingString.contains("]")
+                        || !remainingString.contains("(") || !remainingString.contains(")")) {
+                    break;
+                }
 
                 int nextOpenBracket = markdown.indexOf("[", currentIndex);
                 int nextCloseBracket = markdown.indexOf("]", nextOpenBracket);
                 int openParen = markdown.indexOf("(", nextCloseBracket);
                 int closeParen = markdown.indexOf(")", openParen);
+
+                if (openParen == nextCloseBracket + 1) {
                     toReturn.add(markdown.substring(openParen + 1, closeParen));
                     currentIndex = closeParen + 1;
+                } else {
+                    currentIndex = openParen + 1;
+                }
             }
         }
-        
+
         return toReturn;
     }
 
