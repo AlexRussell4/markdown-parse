@@ -34,10 +34,10 @@ public class MarkdownParseTest { // class declaration
         assertEquals(2, 1 + 1); // asserting that 2 = 1 + 1
     }
 
-    @Test 
+    /*@Test 
     public void doomedToFail() {
         assertEquals(2,1);
-    }
+    } */
 
     @Test
     public void testGetLinks() throws IOException, NoSuchFileException {
@@ -94,4 +94,5 @@ public class MarkdownParseTest { // class declaration
         assertEquals(List.of("a link on the first line"), MarkdownParse.getLinks(Files.readString(fileName8)));
 
     }
+    //test
 }
