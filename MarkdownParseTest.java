@@ -34,6 +34,11 @@ public class MarkdownParseTest { // class declaration
         assertEquals(2, 1 + 1); // asserting that 2 = 1 + 1
     }
 
+    @Test 
+    public void doomedToFail() {
+        assertEquals(2,1);
+    }
+
     @Test
     public void testGetLinks() throws IOException, NoSuchFileException {
         assertEquals(List.of("https://something.com", "some-page.html"),
